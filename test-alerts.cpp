@@ -8,7 +8,13 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("check and alert through email") {
-	alertToController* emailmsgobj = new alertToController;
+	alertToEmail* emailmsgobj = new alertToEmail;
 	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
 	checkAndAlert(emailmsgobj, batteryObj, 20);
+}
+
+TEST_CASE("check and alert through controller") {
+	alertToController* controllermsgobj = new alertToController;
+	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
+	checkAndAlert(controllermsgobj, batteryObj, 20);
 }
