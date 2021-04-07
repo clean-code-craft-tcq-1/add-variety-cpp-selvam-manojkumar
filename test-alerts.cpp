@@ -15,6 +15,6 @@ TEST_CASE("check and alert through email") {
 
 TEST_CASE("check and alert through controller") {
 	alertToController* controllermsgobj = new alertToController;
-	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
-	checkAndAlert(controllermsgobj, batteryObj, 20);
+	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Amaron" };
+	checkAndAlert(controllermsgobj, batteryObj, 60);
 }
