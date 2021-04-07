@@ -8,7 +8,7 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("check and alert through email") {
-	alertToEmail* emailmsgobj = new alertToEmail;
+	alertToEMAIL* emailmsgobj = new alertToEMAIL;
 	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
 	checkAndAlert(emailmsgobj, batteryObj, 20);
 }
