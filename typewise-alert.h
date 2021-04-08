@@ -66,4 +66,4 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-void checkAndAlert(alertmode* alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+BreachType checkAndAlert(alertmode* alertTarget, BatteryCharacter batteryChar, double temperatureInC);
