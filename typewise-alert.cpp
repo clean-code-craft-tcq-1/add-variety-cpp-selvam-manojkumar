@@ -30,18 +30,20 @@ void checkAndAlert(alertmode* alertTarget, BatteryCharacter batteryChar, double 
   alertTarget->notifyallert(breachType);
 }
 
-void alertToController::notifyallert(BreachType breachType) {
+BreachType alertToController::notifyallert(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  return breachType;
 }
 
 
-void alertToEMAIL::notifyallert(BreachType breachType) {
+BreachType alertToEMAIL::notifyallert(BreachType breachType) {
 
   const char* recepient = "a.b@c.com";
   if (breachType != NORMAL)
   {
 	  std::cout << "To: " << recepient << "\n" << EmailMsgMap[breachType] << std::endl;
+	 
   }
-
+   return breachType;
 }
