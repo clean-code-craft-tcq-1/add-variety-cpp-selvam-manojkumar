@@ -46,18 +46,18 @@ typedef enum {
 
 class alertmode {
 public:
-	virtual void notifyallert(BreachType breachType) = 0;
+	virtual BreachType notifyallert(BreachType breachType) = 0;
 };
 
 class alertToController :public alertmode {
 public:
-	virtual void notifyallert(BreachType breachType);
+	virtual BreachType notifyallert(BreachType breachType);
 };
 
 
 class alertToEMAIL :public alertmode {
 public:
-	virtual void notifyallert(BreachType breachType);
+	virtual BreachType notifyallert(BreachType breachType);
 };
 
 
