@@ -10,11 +10,11 @@ TEST_CASE("infers the breach according to limits") {
 TEST_CASE("check and alert through email") {
 	alertToEMAIL* emailmsgobj = new alertToEMAIL;
 	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
-	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, 0) == LOW); ;
+	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, 0) == TOO_LOW); ;
 }
 
 TEST_CASE("check and alert through controller") {
 	alertToController* controllermsgobj = new alertToController;
 	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Amaron" };
-	REQUIRE(checkAndAlert(controllermsgobj, batteryObj, 60) == HIGH);
+	REQUIRE(checkAndAlert(controllermsgobj, batteryObj, 60) == TOO_HIGH);
 }
