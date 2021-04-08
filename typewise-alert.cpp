@@ -24,10 +24,10 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 	return inferBreach(temperatureInC, limits.lowerLimit, limits.upperLimit);
 }
 
-void checkAndAlert(alertmode* alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+BreachType checkAndAlert(alertmode* alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
 
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  alertTarget->notifyallert(breachType);
+  return alertTarget->notifyallert(breachType);
 }
 
 BreachType alertToController::notifyallert(BreachType breachType) {
