@@ -15,7 +15,7 @@ TEST_CASE("check and alert through controller") {
 	alertToController* controllermsgobj = new alertToController;
 	BatteryCharacter batteryObj = { MED_ACTIVE_COOLING , "Amaron" };
 	REQUIRE(checkAndAlert(controllermsgobj, batteryObj, 60) == TOO_HIGH);
-	batteryObj = { PASSIVE_COOLING , "Amara raja" };
-	REQUIRE(checkAndAlert(controllermsgobj, batteryObj, 10) == NORMAL);
+	BatteryCharacter batteryObj2 = { PASSIVE_COOLING , "Amara raja" };
+	REQUIRE(checkAndAlert(controllermsgobj, batteryObj2, 10) == NORMAL);
 }
 
