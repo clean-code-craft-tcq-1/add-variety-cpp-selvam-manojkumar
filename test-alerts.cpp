@@ -3,6 +3,19 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 
-TEST_CASE("infers the breach according to limits") {
-  REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
+
+TEST_CASE("check and alert through email") {
+	alertToEMAIL* emailmsgobj = new alertToEMAIL;
+	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
+	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, -5) == TOO_LOW);
+	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, 2) == NORMAL);
 }
+
+TEST_CASE("check and alert through controller") {
+	alertToController* controllermsgobj = new alertToController;
+	BatteryCharacter batteryObj = { MED_ACTIVE_COOLING , "Amaron" };
+	REQUIRE(checkAndAlert(controllermsgobj, batteryObj, 60) == TOO_HIGH);
+	BatteryCharacter batteryObj2 = { PASSIVE_COOLING , "Amara raja" };
+	REQUIRE(checkAndAlert(controllermsgobj, batteryObj2, 10) == NORMAL);
+}
+
