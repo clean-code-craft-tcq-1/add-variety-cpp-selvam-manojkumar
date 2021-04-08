@@ -4,14 +4,11 @@
 #include "typewise-alert.h"
 
 
-TEST_CASE("infers the breach according to limits") {
-  REQUIRE(inferBreach(22, 20, 30) == NORMAL);
-}
-
 TEST_CASE("check and alert through email") {
 	alertToEMAIL* emailmsgobj = new alertToEMAIL;
 	BatteryCharacter batteryObj = { HI_ACTIVE_COOLING , "Exide" };
-	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, -5) == TOO_LOW); ;
+	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, -5) == TOO_LOW);
+	REQUIRE(checkAndAlert(emailmsgobj, batteryObj, 2) == NORMAL);
 }
 
 TEST_CASE("check and alert through controller") {
